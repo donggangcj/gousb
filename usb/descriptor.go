@@ -33,8 +33,9 @@ type Descriptor struct {
 	Device BCD // The device version
 
 	// Product information
-	Vendor  ID // The Vendor identifer
-	Product ID // The Product identifier
+	Vendor        ID  // The Vendor identifer
+	Product       ID  // The Product identifier
+	iSerialNumber int // The SerialNumber descriptor index
 
 	// Protocol information
 	Class    uint8 // The class of this device
@@ -63,15 +64,16 @@ func newDescriptor(dev *C.libusb_device) (*Descriptor, error) {
 	}
 
 	return &Descriptor{
-		Bus:      uint8(C.libusb_get_bus_number(dev)),
-		Address:  uint8(C.libusb_get_device_address(dev)),
-		Spec:     BCD(desc.bcdUSB),
-		Device:   BCD(desc.bcdDevice),
-		Vendor:   ID(desc.idVendor),
-		Product:  ID(desc.idProduct),
-		Class:    uint8(desc.bDeviceClass),
-		SubClass: uint8(desc.bDeviceSubClass),
-		Protocol: uint8(desc.bDeviceProtocol),
-		Configs:  cfgs,
+		Bus:           uint8(C.libusb_get_bus_number(dev)),
+		Address:       uint8(C.libusb_get_device_address(dev)),
+		Spec:          BCD(desc.bcdUSB),
+		Device:        BCD(desc.bcdDevice),
+		Vendor:        ID(desc.idVendor),
+		Product:       ID(desc.idProduct),
+		iSerialNumber: int(desc.iSerialNumber),
+		Class:         uint8(desc.bDeviceClass),
+		SubClass:      uint8(desc.bDeviceSubClass),
+		Protocol:      uint8(desc.bDeviceProtocol),
+		Configs:       cfgs,
 	}, nil
 }
