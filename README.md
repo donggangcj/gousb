@@ -11,12 +11,12 @@ This package is a fork of [`github.com/kylelemons/gousb`](https://github.com/kyl
 
 *Note, if @kylelemons decides to pick development of the upstream project up again, consider all commits made by me to this repo as ready contributions. I cannot vouch for other commits as the upstream repo needs a signed CLA for Google.*
 
-[travisimg]:   https://travis-ci.org/karalabe/gousb.svg?branch=master
-[travis]:      https://travis-ci.org/karalabe/gousb
+[travisimg]:   https://travis-ci.org/donggangcj/gousb.svg?branch=master
+[travis]:      https://travis-ci.org/donggangcj/gousb
 [appveyorimg]: https://ci.appveyor.com/api/projects/status/84k9xse10rl72gn2/branch/master?svg=true
-[appveyor]:    https://ci.appveyor.com/project/karalabe/gousb
-[docimg]:      https://godoc.org/github.com/karalabe/gousb?status.svg
-[doc]:         https://godoc.org/github.com/karalabe/gousb
+[appveyor]:    https://ci.appveyor.com/project/donggangcj/gousb
+[docimg]:      https://godoc.org/github.com/donggangcj/gousb?status.svg
+[doc]:         https://godoc.org/github.com/donggangcj/gousb
 
 Installation
 ============
@@ -25,7 +25,7 @@ Example: lsusb
 --------------
 The gousb project provides a simple but useful example: lsusb.  This binary will list the USB devices connected to your system and various interesting tidbits about them, their configurations, endpoints, etc.  To install it, run the following command:
 
-    go get -v github.com/karalabe/gousb/lsusb
+    go get -v github.com/donggangcj/gousb/lsusb
 
 gousb
 -----
@@ -33,15 +33,15 @@ If you installed the lsusb example, both libraries below are already installed.
 
 Installing the primary gousb package is really easy:
 
-    go get -v github.com/karalabe/gousb/usb
+    go get -v github.com/donggangcj/gousb/usb
 
 There is also a `usbid` package that will not be installed by default by this command, but which provides useful information including the human-readable vendor and product codes for detected hardware.  It's not installed by default and not linked into the `usb` package by default because it adds ~400kb to the resulting binary.  If you want both, they can be installed thus:
 
-    go get -v github.com/karalabe/gousb/usb{,id}
+    go get -v github.com/donggangcj/gousb/usb{,id}
 
 Documentation
 =============
 The documentation can be viewed via local godoc or via the excellent [godoc.org](http://godoc.org/):
 
-- [usb](http://godoc.org/github.com/karalabe/gousb/usb)
-- [usbid](http://godoc.org/pkg/github.com/karalabe/gousb/usbid)
+- [usb](http://godoc.org/github.com/donggangcj/gousb/usb)
+- [usbid](http://godoc.org/pkg/github.com/donggangcj/gousb/usbid)
